@@ -1,0 +1,152 @@
+# Código para `sorpresadetuhija.html`
+
+```html
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sorpresa de tu hija 💖</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background: linear-gradient(to bottom, #ffd6e7, #fff0f5);
+      min-height: 100vh;
+      text-align: center;
+      padding: 40px 20px;
+      color: #b30059;
+    }
+
+    h1 {
+      font-size: 3em;
+      margin-bottom: 20px;
+    }
+
+    .mensaje {
+      max-width: 850px;
+      margin: auto;
+      background: rgba(255,255,255,0.85);
+      padding: 25px;
+      border-radius: 25px;
+      font-size: 1.3em;
+      line-height: 1.8;
+      box-shadow: 0 0 20px rgba(255,105,180,0.2);
+      margin-bottom: 40px;
+    }
+
+    .pdf-container {
+      max-width: 1000px;
+      margin: auto;
+      background: white;
+      padding: 20px;
+      border-radius: 25px;
+      box-shadow: 0 0 25px rgba(255,105,180,0.25);
+    }
+
+    iframe {
+      width: 100%;
+      height: 700px;
+      border: none;
+      border-radius: 20px;
+    }
+
+    .boton {
+      display: inline-block;
+      margin-top: 35px;
+      padding: 15px 35px;
+      background: #ff4d88;
+      color: white;
+      text-decoration: none;
+      border-radius: 35px;
+      font-size: 1.2em;
+      transition: 0.3s;
+    }
+
+    .boton:hover {
+      background: #e6005c;
+      transform: scale(1.05);
+    }
+
+    .corazon {
+      position: fixed;
+      color: pink;
+      animation: flotar 5s linear infinite;
+      opacity: 0.7;
+      font-size: 25px;
+    }
+
+    @keyframes flotar {
+      0% {
+        transform: translateY(100vh);
+        opacity: 0;
+      }
+
+      10% {
+        opacity: 1;
+      }
+
+      100% {
+        transform: translateY(-120vh);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>💖 Sorpresa de tu hija 💖</h1>
+
+  <div class="mensaje">
+    Mamá, este pequeño detalle está hecho con muchísimo cariño.
+    Gracias por cada abrazo, cada consejo y cada momento en el que estuviste conmigo.
+    Eres una persona increíble y siempre voy a agradecer tenerte en mi vida. 🌸
+  </div>
+
+  <div class="pdf-container">
+    <iframe src="carta.pdf"></iframe>
+  </div>
+
+  <a href="index.html" class="boton">
+    Volver al inicio 💕
+  </a>
+
+  <script>
+    function crearCorazon() {
+      const corazon = document.createElement("div");
+      corazon.classList.add("corazon");
+      corazon.innerHTML = "💖";
+
+      corazon.style.left = Math.random() * 100 + "vw";
+      corazon.style.animationDuration = (Math.random() * 3 + 3) + "s";
+
+      document.body.appendChild(corazon);
+
+      setTimeout(() => {
+        corazon.remove();
+      }, 5000);
+    }
+
+    setInterval(crearCorazon, 300);
+  </script>
+
+</body>
+</html>
+```
+
+## Importante
+
+En la misma carpeta debes tener:
+
+```html
+carta.pdf
+```
+
+Ese será el PDF que se mostrará bonito dentro de la página 💖
