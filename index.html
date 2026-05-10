@@ -88,6 +88,30 @@
       animation: caer linear forwards;
     }
 
+    /* GALERÍA DE 3 FOTOS */
+    .galeria {
+      margin-top: 60px;
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      flex-wrap: wrap;
+      padding-bottom: 60px;
+    }
+
+    .foto-extra {
+      width: 280px;
+      height: 220px;
+      object-fit: cover;
+      border-radius: 20px;
+      border: 6px solid #ffd1e8;
+      box-shadow: 0 0 15px rgba(255, 105, 180, 0.4);
+      transition: transform 0.3s ease;
+    }
+
+    .foto-extra:hover {
+      transform: scale(1.05);
+    }
+
     @keyframes caer {
       to {
         transform: translateY(100vh);
@@ -111,31 +135,43 @@
 <body>
 
   <header>
-    <h1>🌸 Feliz Día de la Madre 🌸</h1>
+    <h1>🌸 Feliz Día Mamá 🌸</h1>
 
-    <!-- Cambia "mama.jpg" por el nombre de tu foto -->
     <img src="fotomamá.jpg" alt="Foto de mi mamá" class="foto-mama">
 
     <p>
       Mamá, gracias por tu amor infinito, por cada abrazo, cada consejo y cada sacrificio.
       Eres mi inspiración, mi fuerza y mi mayor bendición.
       Hoy quiero recordarte lo importante que eres para mí.
-      ❤️ Te amo con todo mi corazón ❤️
+      ❤️ Te amo con todo mi corazón ❤️.
+      Te agradezco por mucho, por todas las veces que me apoyaste en todo y esto es un pequeño detalle para ti que hago con mucho amor.
     </p>
 
     <button class="boton" onclick="mostrarMensaje()">Haz clic para tu sorpresa</button>
 
     <div class="mensaje" id="mensaje">
       🌹 Gracias por ser la mejor mamá del mundo 🌹 <br>
-      Tu amor hace mi vida más hermosa cada día. 💖
+      Tus 3 hijos te lo agradecen, eres una madre ejemplar. 💖
     </div>
   </header>
 
   <footer>
-    Hecho con amor por tu hijo 💕
+    Hecho con amor por tu hijo y un poco de tu hija (la del medio) 💕
   </footer>
 
-  <!-- Música (puedes cambiar el archivo) -->
+  <!-- GALERÍA DE ABAJO -->
+  <section class="galeria">
+
+    <!-- Cambia estos nombres por tus fotos reales -->
+    <img src="foto1.jpg" alt="Recuerdo 1" class="foto-extra">
+
+    <img src="foto2.jpg" alt="Recuerdo 2" class="foto-extra">
+
+    <img src="foto3.jpg" alt="Recuerdo 3" class="foto-extra">
+
+  </section>
+
+  <!-- Música -->
   <audio autoplay loop>
     <source src="musica.mp3" type="audio/mpeg">
   </audio>
@@ -145,7 +181,6 @@
       document.getElementById("mensaje").style.display = "block";
     }
 
-    // Crear corazones cayendo
     function crearCorazon() {
       const corazon = document.createElement("div");
       corazon.classList.add("corazon");
