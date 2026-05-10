@@ -74,6 +74,24 @@
       background: #e6005c;
       transform: scale(1.05);
     }
+    .boton-sorpresa {
+  display: inline-block;
+  margin-top: 20px;
+  margin-left: 15px;
+  padding: 15px 30px;
+  background: #ff99bb;
+  color: white;
+  border: none;
+  border-radius: 30px;
+  font-size: 1.2em;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.boton-sorpresa:hover {
+  background: #ff4d88;
+  transform: scale(1.05);
+}
   </style>
 </head>
 <body>
@@ -113,9 +131,14 @@
       <img src="foto6.jpg" alt="Recuerdo especial 2" class="foto">
     </div>
 
-    <!-- BOTÓN PARA VOLVER -->
-    <button class="boton-regresar" onclick="volverInicio()">
+<!-- BOTÓN VOLVER -->
+<button class="boton-regresar" onclick="volverInicio()">
   Volver al inicio 💕
+</button>
+
+<!-- BOTÓN SORPRESA -->
+<button class="boton-sorpresa" onclick="window.location.href='sorpresadetuhija.html'">
+  Sorpresa de tu hija 💖
 </button>
   </div>
   
