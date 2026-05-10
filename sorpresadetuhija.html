@@ -53,6 +53,22 @@
       border: none;
       border-radius: 20px;
     }
+    .galeria {
+  margin-bottom: 40px;
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.foto {
+  width: 320px;
+  height: 240px;
+  object-fit: cover;
+  border-radius: 20px;
+  border: 6px solid #ffd1e8;
+  box-shadow: 0 0 20px rgba(255,105,180,0.3);
+}
 
     .boton {
       display: inline-block;
@@ -99,9 +115,9 @@
 
 <body>
 
-  <audio id="musica" loop>
+<audio id="musica" loop preload="auto">
   <source src="c.mp3" type="audio/mpeg">
-  </audio>
+</audio>
   
   <h1>💖 Sorpresa de tu hija 💖</h1>
 
@@ -110,6 +126,14 @@
     Gracias por cada abrazo, cada consejo y cada momento en el que estuviste conmigo.
     Eres una persona increíble y siempre voy a agradecer tenerte en mi vida. 🌸
   </div>
+
+  <div class="galeria">
+
+  <img src="foto7.jpg" alt="Recuerdo especial 1" class="foto">
+
+  <img src="foto8.jpg" alt="Recuerdo especial 2" class="foto">
+
+</div>
 
   <div class="pdf-container">
     <iframe src="carta.pdf"></iframe>
@@ -130,7 +154,9 @@
       musica.currentTime = parseFloat(tiempoGuardado);
     }
 
-    musica.play();
+    musica.play().then(() => {
+  musica.currentTime = parseFloat(tiempoGuardado || 0);
+});
   });
 
   setInterval(() => {
