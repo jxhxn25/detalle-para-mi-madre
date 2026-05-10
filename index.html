@@ -147,7 +147,7 @@
       Te agradezco por mucho, por todas las veces que me apoyaste en todo y esto es un pequeño detalle para ti que hago con mucho amor.
     </p>
 
-    <button class="boton" onclick="window.location.href='sorpresa.html'">
+<button class="boton" onclick="irASorpresa()">
   Haz clic para tu sorpresa
 </button>
 
@@ -174,7 +174,7 @@
   </section>
 
   <!-- Música -->
- <audio id="musica" loop>
+<audio id="musica" loop>
   <source src="c.mp3" type="audio/mpeg">
 </audio>
 
@@ -207,6 +207,15 @@
     // Solo una vez
     document.removeEventListener("click", iniciarMusica);
   });
+  function irASorpresa() {
+  const musica = document.getElementById("musica");
+
+  // Guardar el segundo exacto donde va la canción
+  localStorage.setItem("tiempoMusica", musica.currentTime);
+
+  // Ir a la segunda página
+  window.location.href = "sorpresa.html";
+}
 </script>
 
 </body>
