@@ -178,27 +178,36 @@
   <source src="c.mp3" type="audio/mpeg">
 </audio>
 
-  <script>
-    function mostrarMensaje() {
-      document.getElementById("mensaje").style.display = "block";
-    }
+<script>
+  function mostrarMensaje() {
+    document.getElementById("mensaje").style.display = "block";
+  }
 
-    function crearCorazon() {
-      const corazon = document.createElement("div");
-      corazon.classList.add("corazon");
-      corazon.innerHTML = "💖";
-      corazon.style.left = Math.random() * window.innerWidth + "px";
-      corazon.style.animationDuration = (Math.random() * 3 + 2) + "s";
+  function crearCorazon() {
+    const corazon = document.createElement("div");
+    corazon.classList.add("corazon");
+    corazon.innerHTML = "💖";
+    corazon.style.left = Math.random() * window.innerWidth + "px";
+    corazon.style.animationDuration = (Math.random() * 3 + 2) + "s";
 
-      document.body.appendChild(corazon);
+    document.body.appendChild(corazon);
 
-      setTimeout(() => {
-        corazon.remove();
-      }, 5000);
-    }
+    setTimeout(() => {
+      corazon.remove();
+    }, 5000);
+  }
 
-    setInterval(crearCorazon, 300);
-  </script>
+  setInterval(crearCorazon, 300);
+
+  // INICIAR MÚSICA EN EL PRIMER CLIC
+  document.addEventListener("click", function iniciarMusica() {
+    const musica = document.getElementById("musica");
+    musica.play();
+
+    // Solo una vez
+    document.removeEventListener("click", iniciarMusica);
+  });
+</script>
 
 </body>
 </html>
