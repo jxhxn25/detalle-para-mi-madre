@@ -179,10 +179,6 @@
 </audio>
 
 <script>
-  function mostrarMensaje() {
-    document.getElementById("mensaje").style.display = "block";
-  }
-
   function crearCorazon() {
     const corazon = document.createElement("div");
     corazon.classList.add("corazon");
@@ -204,18 +200,17 @@
     const musica = document.getElementById("musica");
     musica.play();
 
-    // Solo una vez
     document.removeEventListener("click", iniciarMusica);
   });
+
+  // GUARDAR TIEMPO Y ABRIR SORPRESA
   function irASorpresa() {
-  const musica = document.getElementById("musica");
+    const musica = document.getElementById("musica");
 
-  // Guardar el segundo exacto donde va la canción
-  localStorage.setItem("tiempoMusica", musica.currentTime);
+    localStorage.setItem("tiempoMusica", musica.currentTime);
 
-  // Ir a la segunda página
-  window.location.href = "sorpresa.html";
-}
+    window.location.href = "sorpresa.html";
+  }
 </script>
 
 </body>
