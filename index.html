@@ -1,5 +1,167 @@
-<h1>hola mundo</h1>
-<p>este es un parrafo</p>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Feliz Día de la Madre</title>
 
-<img src="fotomamájpg.jpg" alt="foto" 
-style="position:absolute; top:0; right:0; width:200px;">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Arial', sans-serif;
+    }
+
+    body {
+      background: linear-gradient(to bottom, #ffd6e8, #fff0f5);
+      text-align: center;
+      overflow-x: hidden;
+      color: #b30059;
+    }
+
+    header {
+      padding: 50px 20px;
+    }
+
+    h1 {
+      font-size: 3em;
+      margin-bottom: 10px;
+      animation: aparecer 2s ease-in-out;
+    }
+
+    p {
+      font-size: 1.3em;
+      max-width: 700px;
+      margin: auto;
+      line-height: 1.8;
+    }
+
+    .foto-mama {
+      margin: 30px auto;
+      width: 280px;
+      height: 280px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 8px solid white;
+      box-shadow: 0 0 20px rgba(255, 105, 180, 0.5);
+    }
+
+    .boton {
+      margin-top: 30px;
+      padding: 15px 30px;
+      font-size: 1.2em;
+      background: #ff4d88;
+      color: white;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .boton:hover {
+      background: #e6005c;
+      transform: scale(1.1);
+    }
+
+    .mensaje {
+      display: none;
+      margin-top: 30px;
+      font-size: 1.5em;
+      color: #cc0066;
+      padding: 20px;
+      animation: aparecer 2s ease-in-out;
+    }
+
+    footer {
+      margin-top: 50px;
+      padding: 20px;
+      font-size: 1.1em;
+    }
+
+    /* Corazones */
+    .corazon {
+      position: fixed;
+      top: -10px;
+      color: red;
+      font-size: 24px;
+      animation: caer linear forwards;
+    }
+
+    @keyframes caer {
+      to {
+        transform: translateY(100vh);
+        opacity: 0;
+      }
+    }
+
+    @keyframes aparecer {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>🌸 Feliz Día de la Madre 🌸</h1>
+
+    <!-- Cambia "mama.jpg" por el nombre de tu foto -->
+    <img src="mama.jpg" alt="Foto de mi mamá" class="foto-mama">
+
+    <p>
+      Mamá, gracias por tu amor infinito, por cada abrazo, cada consejo y cada sacrificio.
+      Eres mi inspiración, mi fuerza y mi mayor bendición.
+      Hoy quiero recordarte lo importante que eres para mí.
+      ❤️ Te amo con todo mi corazón ❤️
+    </p>
+
+    <button class="boton" onclick="mostrarMensaje()">Haz clic para tu sorpresa</button>
+
+    <div class="mensaje" id="mensaje">
+      🌹 Gracias por ser la mejor mamá del mundo 🌹 <br>
+      Tu amor hace mi vida más hermosa cada día. 💖
+    </div>
+  </header>
+
+  <footer>
+    Hecho con amor por tu hijo 💕
+  </footer>
+
+  <!-- Música (puedes cambiar el archivo) -->
+  <audio autoplay loop>
+    <source src="musica.mp3" type="audio/mpeg">
+  </audio>
+
+  <script>
+    function mostrarMensaje() {
+      document.getElementById("mensaje").style.display = "block";
+    }
+
+    // Crear corazones cayendo
+    function crearCorazon() {
+      const corazon = document.createElement("div");
+      corazon.classList.add("corazon");
+      corazon.innerHTML = "💖";
+      corazon.style.left = Math.random() * window.innerWidth + "px";
+      corazon.style.animationDuration = (Math.random() * 3 + 2) + "s";
+
+      document.body.appendChild(corazon);
+
+      setTimeout(() => {
+        corazon.remove();
+      }, 5000);
+    }
+
+    setInterval(crearCorazon, 300);
+  </script>
+
+</body>
+</html>
