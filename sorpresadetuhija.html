@@ -120,9 +120,9 @@
   </a>
 
 <script>
-  const musica = document.getElementById("musica");
+  window.addEventListener("load", function() {
 
-  window.addEventListener("load", async () => {
+    const musica = document.getElementById("musica");
 
     const tiempoGuardado = localStorage.getItem("tiempoMusica");
 
@@ -130,20 +130,37 @@
       musica.currentTime = parseFloat(tiempoGuardado);
     }
 
-    try {
-      await musica.play();
-    } catch (e) {
-      console.log("Autoplay bloqueado");
-    }
+    musica.play();
   });
 
   setInterval(() => {
+
+    const musica = document.getElementById("musica");
+
     localStorage.setItem("tiempoMusica", musica.currentTime);
+
   }, 300);
 
-  window.addEventListener("beforeunload", () => {
-    localStorage.setItem("tiempoMusica", musica.currentTime);
-  });
-</script>
+  function crearCorazon() {
 
+    const corazon = document.createElement("div");
+
+    corazon.classList.add("corazon");
+
+    corazon.innerHTML = "💖";
+
+    corazon.style.left = Math.random() * 100 + "vw";
+
+    corazon.style.animationDuration =
+      (Math.random() * 3 + 3) + "s";
+
+    document.body.appendChild(corazon);
+
+    setTimeout(() => {
+      corazon.remove();
+    }, 5000);
+  }
+
+  setInterval(crearCorazon, 300);
+</script>
 </body>
