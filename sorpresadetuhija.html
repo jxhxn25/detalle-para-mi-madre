@@ -102,6 +102,10 @@
 
 <body>
 
+  <audio id="musica" loop>
+  <source src="c.mp3" type="audio/mpeg">
+  </audio>
+  
   <h1>💖 Sorpresa de tu hija 💖</h1>
 
   <div class="mensaje">
@@ -118,35 +122,41 @@
     Volver al inicio 💕
   </a>
 
-  <script>
-    function crearCorazon() {
-      const corazon = document.createElement("div");
-      corazon.classList.add("corazon");
-      corazon.innerHTML = "💖";
+<script>
+  window.addEventListener("load", function() {
+    const musica = document.getElementById("musica");
 
-      corazon.style.left = Math.random() * 100 + "vw";
-      corazon.style.animationDuration = (Math.random() * 3 + 3) + "s";
+    const tiempoGuardado = localStorage.getItem("tiempoMusica");
 
-      document.body.appendChild(corazon);
-
-      setTimeout(() => {
-        corazon.remove();
-      }, 5000);
+    if (tiempoGuardado) {
+      musica.currentTime = tiempoGuardado;
     }
 
-    setInterval(crearCorazon, 300);
-  </script>
+    musica.play();
+  });
+
+  function crearCorazon() {
+    const corazon = document.createElement("div");
+    corazon.classList.add("corazon");
+    corazon.innerHTML = "💖";
+
+    corazon.style.left = Math.random() * 100 + "vw";
+    corazon.style.animationDuration = (Math.random() * 3 + 3) + "s";
+
+    document.body.appendChild(corazon);
+
+    setTimeout(() => {
+      corazon.remove();
+    }, 5000);
+  }
+
+  setInterval(crearCorazon, 300);
+
+  window.addEventListener("beforeunload", function() {
+    const musica = document.getElementById("musica");
+
+    localStorage.setItem("tiempoMusica", musica.currentTime);
+  });
+</script>
 
 </body>
-</html>
-```
-
-## Importante
-
-En la misma carpeta debes tener:
-
-```html
-carta.pdf
-```
-
-Ese será el PDF que se mostrará bonito dentro de la página 💖
