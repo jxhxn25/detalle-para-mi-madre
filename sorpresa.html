@@ -114,15 +114,15 @@
     </div>
 
     <!-- BOTÓN PARA VOLVER -->
-    <a href="index.html" class="boton-regresar">Volver al inicio 💕</a>
-
+    <button class="boton-regresar" onclick="volverInicio()">
+  Volver al inicio 💕
+</button>
   </div>
   
- <script>
+<script>
   window.addEventListener("load", function() {
     const musica = document.getElementById("musica");
 
-    // Recuperar el tiempo guardado
     const tiempoGuardado = localStorage.getItem("tiempoMusica");
 
     if (tiempoGuardado) {
@@ -131,6 +131,14 @@
 
     musica.play();
   });
- </script>
+
+  function volverInicio() {
+    const musica = document.getElementById("musica");
+
+    localStorage.setItem("tiempoMusica", musica.currentTime);
+
+    window.location.href = "index.html";
+  }
+</script>
 </body>
 </html>
